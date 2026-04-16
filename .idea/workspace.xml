@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="aa8ab301-ae1e-4408-9def-8b795af6d4dc" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/quantiumProject.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/quantiumProject.iml" afterDir="false" />
+    <list default="true" id="aa8ab301-ae1e-4408-9def-8b795af6d4dc" name="Changes" comment="task 2">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -58,6 +57,19 @@
       <option name="presentableId" value="Default" />
       <updated>1776377698212</updated>
     </task>
+    <task id="LOCAL-00001" summary="task 2">
+      <option name="closed" value="true" />
+      <created>1776379577154</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1776379577154</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="task 2" />
+    <option name="LAST_COMMIT_MESSAGE" value="task 2" />
   </component>
 </project>
