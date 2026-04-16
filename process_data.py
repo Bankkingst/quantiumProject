@@ -8,6 +8,7 @@ df = pd.concat(dfs, ignore_index=True)
 
 df = df[df["product"] == "pink morsel"].copy()
 
+df["price"] = df["price"].str.replace("$", "", regex=False).astype(float)
 df["sales"] = df["quantity"] * df["price"]
 
 output = df[["sales", "date", "region"]]

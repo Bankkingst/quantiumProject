@@ -1,8 +1,8 @@
 product,price,quantity,date,region
-pink morsel,3.00,125,2021-01-24,west
-pink morsel,3.00,155,2021-01-25,north
-pink morsel,3.00,185,2021-01-26,south
-pink morsel,3.00,220,2021-01-27,east
-pink morsel,3.00,100,2021-01-28,west
-yellow morsel,1.00,500,2021-01-24,north
-yellow morsel,1.00,450,2021-01-25,south
+pink morsel,$3.00,125,2021-01-24,west
+pink morsel,$3.00,155,2021-01-25,north
+pink morsel,$3.00,185,2021-01-26,south
+pink morsel,$3.00,220,2021-01-27,east
+pink morsel,$3.00,100,2021-01-28,west
+yellow morsel,$1.00,500,2021-01-24,north
+yellow morsel,$1.00,450,2021-01-25,south
