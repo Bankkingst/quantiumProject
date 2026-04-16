@@ -54,7 +54,7 @@ app.layout = html.Div(id="app-container", children=[
             ],
             value="all",
             inline=True,
-            inputStyle={"margin-right": "6px", "accent-color": "#c471ed"},
+            inputStyle={"display": "none"},
             labelClassName="region-option",
         ),
     ]),

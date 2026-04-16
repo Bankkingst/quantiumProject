@@ -151,26 +151,44 @@ body::before {
     white-space: nowrap;
 }
 
-/* Radio button pill styling */
+/* Hide the native radio circle entirely */
+#region-filter input[type="radio"] {
+    display: none;
+}
+
+/* Pill button styling for each label */
 .region-option {
     display: inline-flex;
     align-items: center;
-    gap: 7px;
-    padding: 8px 18px;
+    padding: 9px 22px;
     border-radius: 999px;
-    border: 1px solid rgba(155, 89, 182, 0.35);
+    border: 1.5px solid rgba(196, 113, 237, 0.4);
     cursor: pointer;
-    transition: background 0.2s ease, border-color 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
-    font-size: 0.9rem;
-    font-weight: 500;
-    margin-right: 8px !important;
+    color: #ecf0f1;
+    font-size: 0.92rem;
+    font-weight: 600;
+    margin-right: 10px !important;
+    background: rgba(255, 255, 255, 0.04);
+    transition: background 0.2s ease, border-color 0.2s ease,
+                transform 0.15s ease, box-shadow 0.2s ease, color 0.2s ease;
+    user-select: none;
 }
 
 .region-option:hover {
-    background: rgba(155, 89, 182, 0.2);
+    background: rgba(196, 113, 237, 0.18);
     border-color: #c471ed;
+    color: #ffffff;
     transform: translateY(-2px);
-    box-shadow: 0 4px 14px rgba(155, 89, 182, 0.3);
+    box-shadow: 0 4px 16px rgba(196, 113, 237, 0.35);
+}
+
+/* Selected state */
+.region-option:has(input:checked) {
+    background: linear-gradient(135deg, #9b59b6, #c471ed);
+    border-color: #c471ed;
+    color: #ffffff;
+    box-shadow: 0 4px 18px rgba(196, 113, 237, 0.5);
+    transform: translateY(-2px);
 }
 
 /* ── Chart container ── */
