@@ -1,61 +1,195 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap');
+
+/* ── Reset & base ── */
+*, *::before, *::after { box-sizing: border-box; }
 
 body {
     margin: 0;
     padding: 0;
-    background-color: #1a1a2e;
+    background: #0d0d1a;
     font-family: 'Inter', sans-serif;
     color: #ecf0f1;
+    overflow-x: hidden;
 }
 
+/* ── Animated background ── */
+body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background:
+        radial-gradient(ellipse at 20% 20%, rgba(155, 89, 182, 0.18) 0%, transparent 60%),
+        radial-gradient(ellipse at 80% 80%, rgba(231, 76,  60,  0.14) 0%, transparent 60%);
+    animation: bgPulse 8s ease-in-out infinite alternate;
+    pointer-events: none;
+    z-index: 0;
+}
+
+@keyframes bgPulse {
+    from { opacity: 0.6; }
+    to   { opacity: 1;   }
+}
+
+/* ── Layout ── */
 #app-container {
-    max-width: 1100px;
+    position: relative;
+    z-index: 1;
+    max-width: 1140px;
     margin: 0 auto;
-    padding: 40px 24px;
+    padding: 48px 28px 60px;
+    animation: fadeSlideDown 0.7s ease both;
 }
 
+@keyframes fadeSlideDown {
+    from { opacity: 0; transform: translateY(-24px); }
+    to   { opacity: 1; transform: translateY(0);     }
+}
+
+/* ── Header ── */
 #header-container {
     text-align: center;
-    margin-bottom: 36px;
+    margin-bottom: 40px;
 }
 
 #header {
-    font-size: 2.4rem;
-    font-weight: 700;
-    margin: 0 0 8px 0;
-    background: linear-gradient(90deg, #9b59b6, #e74c3c);
+    font-size: 2.8rem;
+    font-weight: 800;
+    margin: 0 0 10px;
+    background: linear-gradient(110deg, #c471ed, #f64f59, #c471ed);
+    background-size: 200% auto;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+    animation: shimmer 4s linear infinite;
+}
+
+@keyframes shimmer {
+    to { background-position: 200% center; }
 }
 
 #subheader {
     font-size: 1rem;
-    color: #a0aec0;
+    color: #8892a4;
     margin: 0;
+    letter-spacing: 0.04em;
+    animation: fadeIn 1s ease 0.3s both;
 }
 
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+/* ── Stats bar ── */
+#stats-bar {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 20px;
+    animation: fadeSlideUp 0.6s ease 0.15s both;
+}
+
+.stat-card {
+    flex: 1;
+    background: linear-gradient(135deg, #16213e, #1a1a3e);
+    border: 1px solid rgba(155, 89, 182, 0.2);
+    border-radius: 14px;
+    padding: 18px 22px;
+    text-align: center;
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.stat-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 32px rgba(155, 89, 182, 0.25);
+    border-color: rgba(155, 89, 182, 0.5);
+}
+
+.stat-value {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: #c471ed;
+}
+
+.stat-label {
+    font-size: 0.78rem;
+    color: #8892a4;
+    margin-top: 4px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+
+/* ── Controls ── */
 #controls-container {
-    background: #16213e;
-    border-radius: 12px;
-    padding: 20px 28px;
-    margin-bottom: 24px;
+    background: linear-gradient(135deg, #16213e, #1a1a3e);
+    border: 1px solid rgba(155, 89, 182, 0.2);
+    border-radius: 14px;
+    padding: 22px 30px;
+    margin-bottom: 20px;
     display: flex;
     align-items: center;
-    gap: 24px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    gap: 28px;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.4);
+    animation: fadeSlideUp 0.6s ease 0.1s both;
+    transition: box-shadow 0.3s ease;
+}
+
+#controls-container:hover {
+    box-shadow: 0 6px 32px rgba(155, 89, 182, 0.2);
+}
+
+@keyframes fadeSlideUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0);    }
 }
 
 #radio-label {
-    font-weight: 600;
-    font-size: 0.95rem;
-    color: #9b59b6;
+    font-weight: 700;
+    font-size: 0.85rem;
+    color: #c471ed;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
     white-space: nowrap;
 }
 
+/* Radio button pill styling */
+.region-option {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    padding: 8px 18px;
+    border-radius: 999px;
+    border: 1px solid rgba(155, 89, 182, 0.35);
+    cursor: pointer;
+    transition: background 0.2s ease, border-color 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
+    font-size: 0.9rem;
+    font-weight: 500;
+    margin-right: 8px !important;
+}
+
+.region-option:hover {
+    background: rgba(155, 89, 182, 0.2);
+    border-color: #c471ed;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 14px rgba(155, 89, 182, 0.3);
+}
+
+/* ── Chart container ── */
 #chart-container {
-    background: #16213e;
-    border-radius: 12px;
-    padding: 20px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    background: linear-gradient(135deg, #16213e, #1a1a3e);
+    border: 1px solid rgba(155, 89, 182, 0.2);
+    border-radius: 14px;
+    padding: 24px;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.4);
+    animation: fadeSlideUp 0.6s ease 0.2s both;
+    transition: box-shadow 0.3s ease;
+}
+
+#chart-container:hover {
+    box-shadow: 0 8px 40px rgba(155, 89, 182, 0.18);
+}
+
+/* Loading overlay animation */
+._dash-loading {
+    opacity: 0.4;
+    transition: opacity 0.3s ease;
 }
